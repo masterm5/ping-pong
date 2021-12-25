@@ -22,7 +22,7 @@ background = transform.scale(image.load("ping pong tab.png"))
 class GameSprite(sprite.Sprite):
     def __init__(self, racket_image, racket_x, racket_y, size_x, size_y, racket_speed):
         sprite.Sprite.__init__(self):
-        self.iamge = transform.scale(image.load(racket_image), (size_x, size_y))
+        self.image = transform.scale(image.load(racket_image), (size_x, size_y))
         self.speed = racket_speed
         self.rect = self.image.get_rect
         self.rect_x = racket_x
@@ -50,8 +50,8 @@ class Ball(GameSprite):
         self.speed_x = 3
         self.speed_y = 3
     
-racket1 = Player()
-racket2 = Player()
+racket1 = Player(racket_1,)
+racket2 = Player(racket_2, )
 ball = Ball()
 
 count1 = 0
@@ -69,7 +69,16 @@ while game:
             speed_x *= -1
         if ball.speed_x >= 0:
             count2 += 1
-        if count2 == max_2
+        if count2 == max_2:
+            final = True
+        if count1 == max_1:
+            final = True
+        #text on screen
+        text_1 = font2.render("Счет:" + str(count1), 1, (255, 255, 255))
+        window.blit(text_1, (10,50))
+        text_2 = font2.render("Счет:" + str(count2), 1, (255, 255, 255))
+        window.blit(text_2, (10, 20))
+            
 
 
 
