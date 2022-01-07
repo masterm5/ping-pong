@@ -12,13 +12,10 @@ game = True
 final = False
 #sprites
 ball_im = 'pingpong ball.jpg'
-racket_1 = 'racket1.png'
-racket_2 = 'racket2.jpg'
+racket_1 = 'newracket.png'
+racket_2 = 'newracket.png'
 win1 = font1.render("1 PLAYER WINS", True, (163, 21, 28))
 win2 = font1.render("2 PLAYER WINS", True, (163, 21, 28))
-
-mixer.music.load()
-mixer.music.play()
 background = transform.scale(image.load("black.png"))
 
 class GameSprite(sprite.Sprite):
@@ -73,15 +70,15 @@ while game:
             final = True
         if count1 == max_1:
             final = True
+    #text on screen
+    text_1 = font2.render("Счет:" + str(count1), 1, (255, 255, 255))
+    window.blit(text_1, (10,50))
+    text_2 = font2.render("Счет:" + str(count2), 1, (255, 255, 255))
+    window.blit(text_2, (10, 20))
+    racket1.reset()
+    racket2.reset()
+    ball.reset()
 
-        racket1.reset()
-        racket2.reset()
-        ball.reset()
-        #text on screen
-        text_1 = font2.render("Счет:" + str(count1), 1, (255, 255, 255))
-        window.blit(text_1, (10,50))
-        text_2 = font2.render("Счет:" + str(count2), 1, (255, 255, 255))
-        window.blit(text_2, (10, 20))
         
 
 
