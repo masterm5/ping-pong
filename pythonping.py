@@ -14,6 +14,8 @@ final = False
 ball_im = 'pingpong ball.jpg'
 racket_1 = 'racket01.png'
 racket_2 = 'racket01.png'
+count1 = 0
+count2 = 0
 background = (39, 33, 36)
 window.fill(background)
 
@@ -46,9 +48,10 @@ racket2 = Player(racket_2, 250, -100, 40, 50, 8)
 ball = GameSprite(ball_im, 250, -350, 30, 30, 10)
 
 font.init()
-font = font.Font(None, 35)
+font1 = font.Font(None, 35)
 win1 = font1.render("1 PLAYER WINS", True, (163, 21, 28))
 win2 = font1.render("2 PLAYER WINS", True, (163, 21, 28))
+font2 = font.Font(None, 10
 text_1 = font2.render(count1, (243,246,244))
 window.blit(text_1, (10,50))
 text_2 = font2.render(count2, (243,246,244))
@@ -58,8 +61,6 @@ text_3 = font2.render(":", (243,246,244))
 speed_x = 10
 speed_y = 10
 
-count1 = 0
-count2 = 0
 max_1 = 5
 max_2 = 5
 while game:
@@ -97,8 +98,8 @@ while game:
         racket2.reset()
         ball.reset()
 
-display.update()
-clock.tick(FPS)
+    display.update()
+    clock.tick(FPS)
         
 
 
