@@ -1,8 +1,8 @@
 from pygame import*
 font.init()
 from random import randint
-win_wid = 500
-win_hei = 700
+win_wid = 600
+win_hei = 500
 clock = time.Clock()
 FPS = 60
 window = display.set_mode((win_wid, win_hei))
@@ -32,15 +32,15 @@ class GameSprite(sprite.Sprite):
 class Player(GameSprite):
     def update_1(self):
         keys = key.get_pressed()
-        if keys[K_LEFT] and self.rect_x > 5:
+        if keys[K_UP] and self.rect_y > 5:
             self.rect_x -= self.speed
-        if keys[K_RIGHT] and self.rect_x < win_wid - 80:
+        if keys[K_DOWN] and self.rect_y < win_hei - 80:
             self.rect_x += self.speed
     def update_2(self):
         keys = key.get_pressed()
-        if keys[K_a] and self.rect_x > 5:
+        if keys[K_a] and self.rect_y > 5:
             self.rect_x -= self.speed
-        if keys[K_d] and self.rect_x < win_wid - 80:
+        if keys[K_d] and self.rect_y < win_hei - 80:
             self.rect_x += self.speed
     
 racket1 = Player('racket01.png', 250, -600, 40, 50, 8)
@@ -57,7 +57,7 @@ text2 = font2.render(str(count2), True,  (243,246,244))
 window.blit(text2, (10, 20))
 
 speed_x = 3
-speed_y = 14
+speed_y = 3
 
 max_1 = 5
 max_2 = 5
@@ -82,7 +82,7 @@ while game:
             racket1.update_1()
             racket2.update_2()
             ball.update()
-        if ball.rect.y >= -800:
+        if ball.rect.u >= -800:
             count1 += 1
             ball.kill()
             racket1.update_1()
