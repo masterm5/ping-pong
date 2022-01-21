@@ -43,9 +43,9 @@ class Player(GameSprite):
         if keys[K_d] and self.rect_y < win_hei - 80:
             self.rect_x += self.speed
     
-racket1 = Player('racket01.png', 250, -600, 40, 50, 8)
-racket2 = Player('racket01.png', 250, -100, 40, 50, 8)
-ball = GameSprite('ballwhite.png', 250, -350, 30, 30, 10)
+racket1 = Player('racket01.png', 50, -250, 40, 50, 8)
+racket2 = Player('racket01.png', 550, -250, 40, 50, 8)
+ball = GameSprite('ballwhite.png', 300, -250, 30, 30, 10)
 
 font1 = font.Font(None, 35)
 win1 = font1.render("1 PLAYER WINS", True, (163, 21, 28))
@@ -74,15 +74,15 @@ while game:
         if sprite.collide_rect(racket1, ball) or sprite.collide_rect(racket2, ball):
             speed_x *= -1
             speed_y *= 1
-        if ball.rect.x > win_wid-50 or ball.rect.x > 0:
+        if ball.rect.y > win_wid-50 or ball.rect.y > 0:
             speed_x *= -1
-        if ball.rect.y >= 0:
+        if ball.rect.x >= 0:
             count2 += 1
             ball.kill()
             racket1.update_1()
             racket2.update_2()
             ball.update()
-        if ball.rect.u >= -800:
+        if ball.rect.x >= -600:
             count1 += 1
             ball.kill()
             racket1.update_1()
